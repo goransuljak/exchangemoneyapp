@@ -1,0 +1,75 @@
+//////// EXCHANGE APP ////////
+1. FIRST WE NEED TO FIRE OFF SOME EVENTS AND WE NEED TO SELECT SOME DOM ELEMENTS
+(select inputs, and the swap buttons, select lists), so lets create some variables to grab that stuff first.
+2. CALCULATE FUNCTION IT BE VERY IMPORTANT IT BE CALLED ON EVERYTHING
+(fetch exchange rates, and uptade the DOM)
+3. CREATE EVENT LISTENERS
+(select list 'change' of it so when is changed we want to call function calculate
+ select list 'input' if we want to input something.)
+4. INSIDE FUNCTION WE CREATE 2 VARIABLES  TO GIVE AS A VALUE
+5. WE CREATE FETCH WITH DYNAMIC API LINK
+(using template literals and we use money sing to use variable, and this will give as promise back)
+6. CREATE VARIABLE AND GET DATA RATES BACK
+7. CREATE INNERTEXT INSIDE BACKTICS ADD VARIABLES
+8. TO GET VALUE OF AMOUNT WE SET .VALUE AND WE MULTIPLE AMOUNT OF FIRST ONE WITH RATE
+(we can also use function toFixed(2); and set to only 2 decimals)
+9. LAST WE CAN SWAP LISTS
+(we swap with addeventlistener 'click' inside arrow function with temporarly variable, and then
+we add another variable equal to that variable, cause we just swaping them)
+
+
+/////// SHORTLY ABOUT FETCH ////////
+
+Fetch is used to make each goods, or products, request, it could be 
+written in JS or PYTHON, this time I will make request from my front
+end to get data.
+I will use third party API which is exchange rate API 
+
+https://api.exchangerate-api.com/v4/latest/USD which has end point
+that we can hit and we can pass in currency, which will give me
+a response using the fetch API, and then we can use that data in
+application.
+
+1.WE CREATE JSON FILE, this time items.json
+(json object is very very similar to a javascript object, we basically
+have key value pairs inside of curly braces except in JSON keys or strings
+are going to have double quotes.)
+
+simple JSON object would be {"id": 1, "text": "Item One"}
+
+but we can also create arrays of objects by placing this inside of brackets
+
+[
+{"id": 1, "text": "Item One"},
+{"id": 2, "text": "Item Two"},
+{"id": 3, "text": "Item Three"}
+]
+2. CREATE FUNCTION CALCULATE just to show you example 
+
+function calculate(){
+ fetch('items.json', {
+  method: "POST",
+  headers: {
+   "Content-type: application/json"
+}
+})
+}
+calculate();
+and there is lots of more things we could do with fetch. It runs kind of in the 
+background and it returns a promise when its done fetching , and the way 
+that we catch that promises we just tack .then() and this will give us response
+it should be res function. You always have to format what you want so its .json and
+we get promise back.
+
+200 always means everything is succesfull we check that in console status,
+201 means succesfull but also that something was created on a server.
+400 is a user error
+500 it is a server error 
+
+Fetch is built into the browser so that its not like we have to use install it.
+If you are loading browser and getting data from it it is going to be whats called
+a GET request. 
+If you are posting data to server maybe you are filling up a fomr it is going to be saved
+to back end database that would usually post request if you are updating data on server
+it would usually be either a put request or a patch request, and if you are deleting 
+something off the server it would be a delete request.
